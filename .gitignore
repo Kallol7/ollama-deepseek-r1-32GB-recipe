@@ -1,0 +1,7 @@
+data/*
+!data/models
+data/models/*
+!data/models/Modelfile
+
+webui-data/*
+!webui-data/.gitkeep

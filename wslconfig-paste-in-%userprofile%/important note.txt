@@ -1,0 +1,12 @@
+
+Locate %userprofile% folder on your computer and 
+
+use the absolute path instead of %userprofile% inside the .wslconfig file
+
+paste the .wslconfig file in %userprofile% folder
+
+shut down wsl using the command(type following command and press enter):
+  wsl --shutdown
+
+restart wsl (type following command and press enter):
+  wsl

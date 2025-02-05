@@ -1,0 +1,4 @@
+[wsl2]
+memory=22GB
+swap=8GB
+swapFile=%userprofile%\\AppData\\Local\\Temp\\swap.vhdx

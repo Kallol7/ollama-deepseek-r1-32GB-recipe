@@ -1,0 +1,45 @@
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    deploy:
+      resources:
+        limits:
+          cpus: '8'
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    security_opt:
+      - no-new-privileges
+    cap_drop:
+      - ALL
+    cap_add:
+      - SYS_NICE
+    ports:
+      - "11434:11434"
+    healthcheck:
+      test: ollama --version || exit 1
+    command: serve
+    restart: unless-stopped
+    volumes:
+      - ./data:/root/.ollama
+    environment:
+      - OLLAMA_MAX_LOADED_MODELS=1
+      - OLLAMA_NUM_PARALLEL=2
+      - OLLAMA_LOAD_TIMEOUT=60m
+    read_only: true
+
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:v0.5.7
+    container_name: openwebui
+    ports:
+      - "3000:8080"
+    volumes:
+      - ./webui-data:/app/backend/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+    depends_on:
+      - ollama
