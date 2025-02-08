@@ -5,7 +5,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '4'
+          cpus: '8'
         reservations:
           devices:
             - driver: nvidia

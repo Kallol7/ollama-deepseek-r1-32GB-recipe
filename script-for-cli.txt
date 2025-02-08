@@ -20,3 +20,6 @@ then,
 
     after model is created for docker,
         docker exec -it ollama ollama run Deepseek_R1_GGUF_32B_Q2_K
+  
+  or,
+    docker exec -it ollama ollama run deepseek-coder-v2:16b-lite-instruct-q2_K
