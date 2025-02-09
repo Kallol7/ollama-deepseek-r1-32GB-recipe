@@ -22,4 +22,4 @@ then,
         docker exec -it ollama ollama run Deepseek_R1_GGUF_32B_Q2_K
   
   or,
-    docker exec -it ollama run deepseek-coder:6.7b-instruct-q6_K
+    docker exec -it ollama ollama run deepseek-coder:6.7b-instruct-q6_K
